@@ -1,19 +1,39 @@
 package it.mauluk92.theatre.dtos;
 
-import it.mauluk92.theatre.models.Score;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
-public class SymphonyDto extends TheatreCatalogueSystemDtoImpl {
+public class SymphonyDto implements CatalogueSystemTheatreDto {
+
+    private String name;
+    private int id;
 
     private List<Integer> musicalScoreDtoIds;
 
-    public List<Integer> getMusicalScores() {
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Integer> getMusicalScoreDtoIds() {
         return musicalScoreDtoIds;
     }
 
-    public void setMusicalScores(List<Integer> musicalScoresDtoIds) {
-        this.musicalScoreDtoIds = musicalScoresDtoIds;
+    public void setMusicalScoreDtoIds(List<Integer> musicalScoreDtoIds) {
+        this.musicalScoreDtoIds = musicalScoreDtoIds;
     }
 }

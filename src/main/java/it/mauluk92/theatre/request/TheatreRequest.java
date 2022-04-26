@@ -1,8 +1,6 @@
 package it.mauluk92.theatre.request;
 
-import it.mauluk92.theatre.dtos.CatalogueSystemDto;
-
-public abstract class TheatreRequest<D extends CatalogueSystemDto> {
+public abstract class TheatreRequest<D> {
 
     private D requestDto;
 

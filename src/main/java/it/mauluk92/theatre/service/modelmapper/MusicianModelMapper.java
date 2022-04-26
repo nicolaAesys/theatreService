@@ -1,12 +1,7 @@
 package it.mauluk92.theatre.service.modelmapper;
 
-import it.mauluk92.theatre.dtos.CatalogueSystemDto;
 import it.mauluk92.theatre.dtos.MusicianDto;
-import it.mauluk92.theatre.dtos.TheatreCatalogueSystemDtoImpl;
-import it.mauluk92.theatre.models.CatalogueSystem;
 import it.mauluk92.theatre.models.Musician;
-import it.mauluk92.theatre.models.TheatreCatalogueSystemImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,6 +10,8 @@ public class MusicianModelMapper extends ModelMapperCatalogueImpl<Musician, Musi
     @Override
     public Musician toModelObject(Class<Musician> clazz, MusicianDto musicianDto) {
         Musician modelObject = super.toModelObject(clazz, musicianDto);
+        modelObject.setId(musicianDto.getId());
+        modelObject.setName(musicianDto.getName());
         modelObject.setInstrument(musicianDto.getInstrument());
         return modelObject;
     }
@@ -22,7 +19,9 @@ public class MusicianModelMapper extends ModelMapperCatalogueImpl<Musician, Musi
     @Override
     public MusicianDto toDtoObject(Class<MusicianDto> clazz, Musician musician) {
         MusicianDto dtoObject = super.toDtoObject(clazz, musician);
-        dtoObject.setInstrument(dtoObject.getInstrument());
+        dtoObject.setName(musician.getName());
+        dtoObject.setId(musician.getId());
+        dtoObject.setInstrument(musician.getInstrument());
         return dtoObject;
     }
 }

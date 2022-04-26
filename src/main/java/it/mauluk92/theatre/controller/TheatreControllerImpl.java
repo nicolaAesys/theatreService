@@ -1,6 +1,5 @@
 package it.mauluk92.theatre.controller;
 
-import it.mauluk92.theatre.dtos.CatalogueSystemDto;
 import it.mauluk92.theatre.request.TheatreRequest;
 import it.mauluk92.theatre.service.TheatreService;
 import it.mauluk92.theatre.service.exception.ServiceException;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
-public abstract class TheatreControllerImpl<D extends CatalogueSystemDto, R extends TheatreRequest<D>> implements TheatreController<D,R>{
+public abstract class TheatreControllerImpl<D, R extends TheatreRequest<D>> implements TheatreController<D,R>{
     @Autowired
     TheatreService<D> theatreService;
 

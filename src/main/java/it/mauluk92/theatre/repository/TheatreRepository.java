@@ -1,6 +1,5 @@
 package it.mauluk92.theatre.repository;
 
-import it.mauluk92.theatre.models.CatalogueSystem;
 import it.mauluk92.theatre.repository.exception.DaoException;
 
 public interface TheatreRepository<T> {

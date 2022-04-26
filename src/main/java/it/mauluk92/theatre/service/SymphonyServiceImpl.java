@@ -2,9 +2,6 @@ package it.mauluk92.theatre.service;
 
 import it.mauluk92.theatre.dtos.SymphonyDto;
 import it.mauluk92.theatre.models.Symphony;
-import it.mauluk92.theatre.repository.SymphonyRepositoryImpl;
-import it.mauluk92.theatre.service.modelmapper.SymphonyModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

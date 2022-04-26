@@ -1,32 +1,37 @@
 package it.mauluk92.theatre.service.modelmapper;
 
+import it.mauluk92.theatre.dtos.MusicianDto;
 import it.mauluk92.theatre.dtos.ScoreDto;
+import it.mauluk92.theatre.models.Musician;
 import it.mauluk92.theatre.models.Score;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 @Component
-public class ScoreModelMapper extends ModelMapperCatalogueImpl<Score, it.mauluk92.theatre.dtos.ScoreDto>{
-/*
-    @Autowired
-    public ScoreModelMapper(){
-        this.setModelObjectCast(new Score());
-        this.setDtoObjectCast(new ScoreDto());
-    }
+public class ScoreModelMapper extends ModelMapperCatalogueImpl<Score, ScoreDto>{
+
+
     @Override
-    public Score toModelObject(it.mauluk92.theatre.dtos.ScoreDto scoreDto) {
+    public Score toModelObject(Class<Score> clazz ,ScoreDto scoreDto) {
         NoteMapper noteMapper = new NoteMapper();
-        super.getModelObjectCast().setMusicalSheet(scoreDto.getMusicalSheet().stream().map(noteMapper::toModelObject).collect(Collectors.toList()));
-        return super.toModelObject(scoreDto);
+        Score modelObject = super.toModelObject(clazz, scoreDto);
+        modelObject.setId(scoreDto.getId());
+        modelObject.setName(scoreDto.getName());
+        modelObject.setMusicalSheet(scoreDto.getMusicalSheet().stream().map(noteMapper::toModelObject).collect(Collectors.toList()));
+        return modelObject;
     }
 
     @Override
-    public it.mauluk92.theatre.dtos.ScoreDto toDtoObject(Score score) {
+    public ScoreDto toDtoObject(Class<ScoreDto> clazz, Score score) {
         NoteMapper noteMapper = new NoteMapper();
-        super.getDtoObjectCast().setMusicalSheet(score.getMusicalSheet().stream().map(noteMapper::toDtoObject).collect(Collectors.toList()));
-        return super.toDtoObject(score);
+        ScoreDto dtoObject = super.toDtoObject(clazz, score);
+        dtoObject.setName(score.getName());
+        dtoObject.setId(score.getId());
+        dtoObject.setMusicalSheet(score.getMusicalSheet().stream().map(noteMapper::toDtoObject).collect(Collectors.toList()));
+        return dtoObject;
     }
 
- */
+
+
 }

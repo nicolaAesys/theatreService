@@ -1,16 +1,32 @@
 package it.mauluk92.theatre.dtos;
 
-import org.springframework.stereotype.Component;
-
-import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
-public class OrchestraDto extends TheatreCatalogueSystemDtoImpl {
+public class OrchestraDto implements CatalogueSystemTheatreDto {
+
+    private int id;
+    private String name;
     @Pattern(regexp = "^\\d+$", message="Id must be numeric!")
     private List<Integer> musicianIds;
     @Pattern(regexp = "^\\d+$", message="Id must be numeric!")
     private int symphonyId;
+    @Override
+    public int getId() {
+        return id;
+    }
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getSymphonyId() {
         return symphonyId;

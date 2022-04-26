@@ -1,19 +1,35 @@
 package it.mauluk92.theatre.dtos;
 
 
-import org.springframework.stereotype.Component;
-
 import javax.validation.constraints.Pattern;
 
 
-public class MusicianDto extends TheatreCatalogueSystemDtoImpl {
+public class MusicianDto implements CatalogueSystemTheatreDto{
 
     @Pattern(regexp = "^([A-Za-z]+(['\\sA-Za-z]+)?)$" , message="Instrument name can only contain letters,whitespaces or '")
     private String instrument;
+    private int id;
+    private String name;
     private String fullDescription;
 
     public String getInstrument() {
         return instrument;
+    }
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public int getId() {
+        return id;
+    }
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+    @Override
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setInstrument(String instrument) {
